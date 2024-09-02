@@ -7,6 +7,8 @@ class Figure:
         
         if len(list(__sides))==self.sides_count:
             self.__sides=list(__sides)
+        elif len(list(__sides))==1 and self.sides_count==12:
+            self.__sides=list(__sides)*12
         else:
             self.__sides=[1]*self.sides_count
     
@@ -97,11 +99,8 @@ class Cube(Figure):
     def get_volume(self):
         return self.get_sides()[0]**3
         
-circle1 = Circle((200, 200, 100), 20) # (Цвет, стороны)
+circle1 = Circle((200, 200, 100), 10) # (Цвет, стороны)
 cube1 = Cube((222, 35, 130), 6)
-triangle1=Triangle((10,340,20),(15,30,10))
-triangle1.set_sides(35,30,20,5)
-print(triangle1.get_sides())
 
 # Проверка на изменение цветов:
 circle1.set_color(55, 66, 77) # Изменится
@@ -112,14 +111,11 @@ print(cube1.get_color())
 # Проверка на изменение сторон:
 cube1.set_sides(5, 3, 12, 4, 5) # Не изменится
 print(cube1.get_sides())
-cube1.set_sides(15) # Изменится
-
-print(cube1.get_sides())
+circle1.set_sides(15) # Изменится
+print(circle1.get_sides())
 
 # Проверка периметра (круга), это и есть длина:
 print(len(circle1))
-print(len(triangle1))
-print(len(cube1))
+
 # Проверка объёма (куба):
 print(cube1.get_volume())
-print(triangle1.get_square())
